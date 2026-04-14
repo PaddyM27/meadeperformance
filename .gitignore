@@ -1,0 +1,8 @@
+node_modules/
+temporary screenshots/
+*.mjs
+package-lock.json
+.env
+*.pdf
+*.png
+screenshot-*.mjs

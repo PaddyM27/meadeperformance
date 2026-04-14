@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athlete Accelerator — Paddy Meade Performance</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          black: '#080808',
+          offwhite: '#F5F2EC',
+          grey: '#111110',
+          mid: '#1A1A18',
+          rule: '#2A2A28',
+          dim: '#9A9A94',
+          dim2: '#6A6A66',
+        },
+        fontFamily: {
+          sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+          serif: ['"EB Garamond"', 'Georgia', 'serif'],
+        },
+      }
+    }
+  }
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #080808;
+    --offwhite: #F5F2EC;
+    --grey: #111110;
+    --mid: #1A1A18;
+    --rule: #2A2A28;
+    --dim: #9A9A94;
+    --dim2: #6A6A66;
+  }
+
+  html { background: var(--black); scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--black);
+    color: var(--offwhite);
+    font-size: 17px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--rule);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .nav-brand-main {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--offwhite);
+  }
+
+  .nav-brand-sep {
+    width: 20px;
+    height: 0.5px;
+    background: var(--rule);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 2px;
+  }
+
+  .nav-brand-sub {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--dim);
+  }
+
+  .nav-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dim2);
+  }
+
+  /* CONTENT COLUMN */
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* HEADER */
+  .header-block {
+    padding: 64px 0 56px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .author-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 0.5px solid var(--rule);
+  }
+
+  .author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .author-name {
+    font-size: 13px;
+    color: var(--dim);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+  }
+
+  .author-dot {
+    color: var(--dim2);
+    margin: 0 4px;
+  }
+
+  .page-title {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: var(--offwhite);
+    margin-bottom: 14px;
+  }
+
+  .page-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--dim);
+    line-height: 1.4;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dim2);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--rule);
+    margin: 48px 0;
+  }
+
+  /* BODY TEXT */
+  .body-text {
+    color: var(--offwhite);
+    font-size: 17px;
+    line-height: 1.78;
+    margin-bottom: 20px;
+  }
+
+  .body-text:last-child { margin-bottom: 0; }
+
+  /* BOLD SECTION HEADING (inline, like the PDF) */
+  .section-heading {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--offwhite);
+    display: block;
+    margin-bottom: 12px;
+    margin-top: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-heading:first-child { margin-top: 0; }
+
+  /* HOOK / OPENING */
+  .hook-block {
+    padding: 32px 36px;
+    background: var(--grey);
+    border-left: 2px solid var(--dim2);
+    margin: 40px 0;
+  }
+
+  .hook-block p {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--offwhite);
+  }
+
+  /* BIG HEADLINE */
+  .big-headline {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--offwhite);
+    margin-bottom: 20px;
+  }
+
+  /* BOLD INLINE */
+  strong { font-weight: 700; color: var(--offwhite); }
+
+  /* BULLET LIST */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 20px;
+  }
+
+  .bullet-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--rule);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--offwhite);
+  }
+
+  .bullet-list li:last-child { border-bottom: none; }
+
+  .bullet-list li::before {
+    content: '—';
+    color: var(--dim2);
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 14px;
+  }
+
+  /* BONUS CALLOUT */
+  .bonus-callout {
+    background: var(--mid);
+    border: 0.5px solid var(--rule);
+    padding: 32px 36px;
+    margin: 32px 0;
+  }
+
+  .bonus-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dim2);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .bonus-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--offwhite);
+    margin-bottom: 20px;
+  }
+
+  .bonus-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .bonus-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--rule);
+    font-size: 16px;
+    color: var(--offwhite);
+    line-height: 1.6;
+  }
+
+  .bonus-list li:last-child { border-bottom: none; }
+
+  .bonus-list li::before {
+    content: '●';
+    color: var(--dim2);
+    flex-shrink: 0;
+    font-size: 7px;
+    margin-top: 7px;
+  }
+
+  .bonus-note {
+    margin-top: 16px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--dim);
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 32px 0;
+  }
+
+  @media (max-width: 600px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+
+  .pricing-card {
+    padding: 32px 28px;
+    border: 0.5px solid var(--rule);
+    background: var(--grey);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card.featured {
+    background: var(--mid);
+  }
+
+  .pricing-card-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dim2);
+    margin-bottom: 16px;
+  }
+
+  .pricing-card-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--offwhite);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .pricing-price {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--offwhite);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .pricing-price-alt {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--dim);
+    margin-bottom: 20px;
+  }
+
+  .pricing-divider {
+    border: none;
+    border-top: 0.5px solid var(--rule);
+    margin: 20px 0;
+  }
+
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    flex: 1;
+  }
+
+  .pricing-features li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 7px 0;
+    font-size: 15px;
+    color: var(--dim);
+    line-height: 1.5;
+  }
+
+  .pricing-features li::before {
+    content: '→';
+    color: var(--dim2);
+    flex-shrink: 0;
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .pricing-note {
+    margin-top: 16px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--dim2);
+    line-height: 1.6;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 64px 0 80px;
+    text-align: center;
+  }
+
+  .cta-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--dim2);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .cta-headline {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--offwhite);
+    margin-bottom: 12px;
+  }
+
+  .cta-headline em {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.05em;
+    color: var(--offwhite);
+  }
+
+  .cta-sub {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--dim);
+    margin-bottom: 40px;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--offwhite);
+    color: var(--black);
+    padding: 16px 40px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 200ms ease;
+    box-shadow: 0 4px 20px rgba(245,242,236,0.08);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(245,242,236,0.16);
+  }
+
+  .cta-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(245,242,236,0.06);
+  }
+
+  .cta-btn:focus-visible {
+    outline: 2px solid var(--offwhite);
+    outline-offset: 4px;
+  }
+
+  .ps-block {
+    margin-top: 48px;
+    padding: 24px 28px;
+    border: 0.5px solid var(--rule);
+    text-align: left;
+  }
+
+  .ps-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--offwhite);
+    margin-bottom: 8px;
+  }
+
+  .ps-text {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--dim);
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 0.5px solid var(--rule);
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    color: var(--dim2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* SECTION WRAPPER */
+  .section {
+    padding: 56px 0 0;
+  }
+
+  /* PHASE ITEMS */
+  .phase-item {
+    margin-bottom: 36px;
+  }
+
+  .phase-item:last-child { margin-bottom: 0; }
+
+  /* INLINE ITALIC */
+  em, i {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+  }
+
+  /* DATE TAG */
+  .date-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dim2);
+    border: 0.5px solid var(--rule);
+    padding: 5px 14px;
+    margin-bottom: 16px;
+  }
+
+  /* GRAIN TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  main, nav, footer { position: relative; z-index: 1; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .content { padding: 0 20px; }
+    .nav { padding: 12px 20px; }
+    .header-block { padding: 48px 0 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="nav-brand-main">Meade</span>
+    <span class="nav-brand-sep"></span>
+    <span class="nav-brand-sub">Performance</span>
+  </div>
+  <span class="nav-label">Athlete Accelerator</span>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+  <!-- HEADER -->
+  <header class="header-block">
+    <div class="author-row">
+      <div class="author-avatar">
+        <img src="MEADE PERFORMANCE  Headshot (Logo).png" alt="Paddy Meade" />
+      </div>
+      <span class="author-name">Paddy Meade<span class="author-dot"> · </span>Meade Performance</span>
+    </div>
+
+    <h1 class="page-title">Athlete<br>Accelerator</h1>
+    <p class="page-subtitle">Cohort 1 — Pilot Programme</p>
+  </header>
+
+  <!-- OPENING HOOK -->
+  <div class="hook-block">
+    <p>Here's how you're going to feel like a completely different athlete in 8 weeks...</p>
+  </div>
+
+  <p class="body-text">I'm starting a new Pilot Programme and I'm looking for a handful of athletes to work with as founding members before the official programme launch.</p>
+
+  <p class="body-text">The goal is simple:</p>
+
+  <p class="body-text"><strong>Add strength, power, and speed that actually transfers into your sport — in 8 weeks, with measurable proof.</strong></p>
+
+  <p class="body-text">I've created a system for it.</p>
+
+  <hr class="divider">
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <span class="section-label">How it works</span>
+
+    <h2 class="big-headline">Here's how it works.</h2>
+
+    <div class="phase-item">
+      <strong class="section-heading">First, we establish your baseline.</strong>
+      <p class="body-text">Day 1–3, we screen. Strength, power, movement quality, injury history — all logged.</p>
+      <p class="body-text">Now you have a starting line and something to beat. No more guessing whether you're improving. The data tells you exactly where you are and exactly how far you've come.</p>
+    </div>
+
+    <div class="phase-item">
+      <strong class="section-heading">Then we build your weekly structure around your sport and schedule.</strong>
+      <p class="body-text">You'll have a clear plan every single week.</p>
+      <p class="body-text">No more second-guessing what to do in the gym, no more random conditioning, and no more training in a way that leaves you flat for performance.</p>
+      <p class="body-text">The micro-dosing system places every session strategically around your training and competition schedule — so you build performance, not fatigue.</p>
+    </div>
+
+    <div class="phase-item">
+      <strong class="section-heading">Then we convert your strength into speed and power on the field.</strong>
+      <p class="body-text">This is where it gets good because you start to notice your training actually showing up in performance.</p>
+      <p class="body-text">You're winning more physical moments. You're sharper off the mark. You're recovering better between efforts. You feel more explosive and more confident in your body — and people around you notice the difference.</p>
+    </div>
+
+    <p class="body-text">The goal is to get you measurably stronger, faster, and more powerful in 8 weeks — and build on that every cohort after.</p>
+
+    <p class="body-text">I've been coaching athletes with this system for years, and I use it in my own training as an active athlete. I'll be teaching exactly what I do.</p>
+
+    <p class="body-text">Over the next 8 weeks I'll be working with a small group personally and I only want athletes who will show up, log their sessions, and communicate what's happening. I want real results. Real case studies before I open the programme fully.</p>
+
+    <p class="body-text">I'm ready to get started right away and I'm inviting you to join Cohort 1.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHO I'M LOOKING FOR -->
+  <section class="section">
+    <span class="section-label">Who this is for</span>
+
+    <h2 class="big-headline">I'm looking for a very specific type of athlete:</h2>
+
+    <ul class="bullet-list">
+      <li>You're already training but you know something isn't quite transferring into performance</li>
+      <li>You're serious about improving, not just "staying fit"</li>
+      <li>You have access to a gym with a barbell and space to move/run</li>
+      <li>You're willing to track your training and feedback so we can refine your progress</li>
+      <li>You're coachable, consistent, and easy to work with</li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHAT IT LOOKS LIKE INSIDE -->
+  <section class="section">
+    <span class="section-label">Inside the programme</span>
+
+    <h2 class="big-headline">Here's what it looks like inside</h2>
+
+    <p class="body-text">Before your programme lands, you'll complete a short intake form covering your sport, training history, strength numbers, schedule, and any injury flags.</p>
+
+    <p class="body-text">Based on your answers I'll build your individualised programme and tailor it specifically to you.</p>
+
+    <p class="body-text">Your programme is delivered weekly through <strong>Our Training App</strong> — short, structured sessions built around your competition schedule. Open the app, see exactly what to do, get it done.</p>
+
+    <p class="body-text">Then every two weeks we do a 1:1 check-in (async, no calls) to review your progress and refine your programme so you're always moving forward.</p>
+
+    <p class="body-text">Alongside that you'll have access to a full performance education library covering load management, session placement, speed mechanics, and competition preparation.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHERE AND WHEN -->
+  <section class="section">
+    <span class="section-label">Dates</span>
+
+    <h2 class="big-headline">Where and when?</h2>
+
+    <span class="date-tag">Kicking off May 1st</span>
+
+    <p class="body-text">Your programme lands in Our Training App within 24 hours of confirmation — no waiting around.</p>
+
+    <p class="body-text">I'll be in there throughout the 8 weeks to support you, answer questions, and keep things moving.</p>
+
+    <p class="body-text">The sessions are short and built for real life. If you can give it your honesty and your consistency, we'll get you results.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- BONUS -->
+  <section class="section">
+    <div class="bonus-callout">
+      <span class="bonus-label">Cohort 1 only</span>
+      <div class="bonus-title">We've also added a BONUS for Cohort 1..</div>
+      <p class="body-text" style="margin-bottom: 20px;">Every athlete in Cohort 1 gets:</p>
+      <ul class="bonus-list">
+        <li>A personal performance review from me at the halfway point</li>
+        <li>A Full Movement Compensation Screening to identify where your body is limiting you and how to improve efficiency</li>
+        <li>A 1:1 Kickoff Call so we can align your training and set you up properly from Day 1</li>
+      </ul>
+      <p class="bonus-note">This is Cohort 1 only. It won't be included when the programme opens fully.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- INVESTMENT -->
+  <section class="section">
+    <span class="section-label">Investment</span>
+
+    <h2 class="big-headline">Your investment</h2>
+
+    <p class="body-text">€249 for the full 8-week programme.</p>
+    <p class="body-text">Or 2 × €130 (one now and one at the halfway point).</p>
+    <p class="body-text" style="color: var(--dim); font-family: 'EB Garamond', serif; font-style: italic; font-size: 17px;">Most athletes make this feel irrelevant the moment they start performing better. One clear performance shift and it pays for itself.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- FASTER ROUTE -->
+  <section class="section">
+    <h2 class="big-headline">Is there a faster route?</h2>
+
+    <p class="body-text">Yes.</p>
+
+    <p class="body-text">The Accelerator alone is more than enough to get results.</p>
+
+    <p class="body-text">But if you want to move faster with more individual attention, there's an upgrade option.</p>
+
+    <p class="body-text">This includes everything above plus:</p>
+
+    <ul class="bullet-list">
+      <li>2 extra private 1:1 calls</li>
+      <li>Direct messaging access for feedback and rapid adjustments</li>
+      <li>Priority support so we can fix issues quickly and keep momentum high</li>
+    </ul>
+
+    <p class="body-text">This is for athletes who want to accelerate progress and get more direct coaching input.</p>
+
+    <p class="body-text"><strong>Investment:</strong><br>
+    €500 total (2 × €275)<br>
+    or €400 if paid upfront</p>
+
+    <p class="body-text">If you want the highest level of individual attention and faster progress, this is it.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <span class="cta-label">Here's what to do next</span>
+    <h2 class="cta-headline">Just reply saying<br><em>"I'm IN"</em></h2>
+    <p class="cta-sub">and I'll take it from there.</p>
+
+    <a href="https://www.instagram.com/paddymeade_performance?igsh=dTRwZDMwc2NoOHRq&utm_source=qr" class="cta-btn" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      DM me "I'm IN"
+    </a>
+
+    <p class="body-text" style="margin-top: 32px; color: var(--dim); font-family: 'EB Garamond', serif; font-style: italic; font-size: 17px;">I'd love to work with you.</p>
+
+    <div class="ps-block">
+      <div class="ps-label">P.S.</div>
+      <p class="ps-text">As soon as you decide, I'll send you the exact 'Speed Blueprint' I use in my own training. It takes five minutes to read and you can start using it immediately to improve explosiveness.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-text">© 2025 Meade Performance</span>
+</footer>
+
+</body>
+</html>
