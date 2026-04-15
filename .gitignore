@@ -4,5 +4,6 @@ temporary screenshots/
 package-lock.json
 .env
 *.pdf
-*.png
+Screenshot *.png
+MEADE PERFORMANCE*.png
 screenshot-*.mjs
