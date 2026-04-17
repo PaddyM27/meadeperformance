@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 Days, 20 Ways to Become a More Dominant Athlete — Meade Performance</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:    #080808;
+  --offwhite: #F5F2EC;
+  --grey:     #111110;
+  --mid:      #1A1A18;
+  --rule:     #2A2A28;
+  --dim:      #9A9A94;
+  --dim2:     #6A6A66;
+}
+
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── FULL-BLEED BACKGROUND ── */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--black);
+  background-image: url('87a79ae902ed37cab6ae21adc2798958.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ── GRAIN TEXTURE ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── DARK OVERLAY ── */
+.overlay {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  background:
+    radial-gradient(ellipse 90% 90% at 50% 50%, rgba(8,8,8,0.35) 0%, rgba(8,8,8,0.0) 100%),
+    linear-gradient(to bottom, rgba(8,8,8,0.72) 0%, rgba(8,8,8,0.58) 100%);
+}
+
+/* ── NAV ── */
+.nav {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.nav-brand-main {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+}
+
+.nav-brand-sep {
+  width: 16px;
+  height: 0.5px;
+  background: var(--dim2);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-brand-sub {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--dim2);
+}
+
+.nav-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--dim2);
+}
+
+/* ── CARD ── */
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(8, 8, 8, 0.90);
+  border: 0.5px solid rgba(42, 42, 40, 0.7);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  padding: 48px 44px 44px;
+  box-shadow:
+    0 32px 80px -16px rgba(0,0,0,0.7),
+    0 8px 32px -8px rgba(0,0,0,0.5),
+    inset 0 0.5px 0 rgba(245,242,236,0.04);
+  text-align: center;
+}
+
+/* ── EYEBROW ── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.eyebrow-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--offwhite);
+  opacity: 0.3;
+}
+
+.eyebrow-text {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--dim2);
+}
+
+/* ── HEADLINE ── */
+.headline {
+  font-size: clamp(26px, 4.5vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--offwhite);
+  margin-bottom: 6px;
+}
+
+.headline-accent {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.58em;
+  color: var(--dim);
+  text-transform: none;
+  letter-spacing: 0;
+  display: block;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ── DIVIDER ── */
+.rule {
+  width: 28px;
+  height: 0.5px;
+  background: var(--rule);
+  margin: 20px auto;
+}
+
+/* ── SUBTEXT ── */
+.subtext {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--dim);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── FORM ── */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-input {
+  width: 100%;
+  background: rgba(26, 26, 24, 0.8);
+  border: 0.5px solid var(--rule);
+  color: var(--offwhite);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  padding: 15px 18px;
+  outline: none;
+  border-radius: 2px;
+  transition: border-color 200ms ease, background 200ms ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input::placeholder {
+  color: var(--dim2);
+}
+
+.form-input:focus {
+  border-color: var(--dim);
+  background: rgba(31, 31, 29, 0.9);
+}
+
+.form-input:hover:not(:focus) {
+  border-color: #3a3a38;
+}
+
+/* iOS font-size fix */
+@media (max-width: 580px) {
+  .form-input { font-size: 16px; }
+}
+
+/* ── SUBMIT BUTTON ── */
+.submit-btn {
+  width: 100%;
+  background: var(--offwhite);
+  color: var(--black);
+  border: none;
+  border-radius: 2px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  cursor: pointer;
+  margin-top: 4px;
+  transition:
+    transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background 150ms ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.submit-btn:hover {
+  background: #e8e5df;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+.submit-btn:focus-visible {
+  outline: 2px solid var(--dim);
+  outline-offset: 3px;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── ERROR ── */
+#form-error {
+  font-size: 12px;
+  color: #c0624a;
+  text-align: center;
+  display: none;
+  margin-top: 4px;
+}
+
+/* ── FINE PRINT ── */
+.fine-print {
+  font-size: 11px;
+  color: var(--dim2);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* ── ENTRANCE ANIMATIONS ── */
+.card {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 500ms cubic-bezier(0.34, 1.56, 0.64, 1) 100ms forwards;
+}
+
+.nav {
+  opacity: 0;
+  animation: fadeIn 400ms ease 0ms forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 540px) {
+  .overlay {
+    padding: 24px 16px;
+    background:
+      linear-gradient(to bottom, rgba(8,8,8,0.90) 0%, rgba(8,8,8,0.82) 100%);
+    justify-content: flex-start;
+    padding-top: 28px;
+  }
+
+  .nav { max-width: 100%; margin-bottom: 20px; }
+
+  .card {
+    padding: 32px 24px 36px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .headline { font-size: 26px; }
+
+  .subtext { font-size: 15px; margin-bottom: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="overlay">
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-brand">
+      <span class="nav-brand-main">Meade</span>
+      <span class="nav-brand-sep"></span>
+      <span class="nav-brand-sub">Performance</span>
+    </div>
+    <span class="nav-tag">Free — 20 Days</span>
+  </nav>
+
+  <!-- Card -->
+  <div class="card">
+
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      <span class="eyebrow-text">Free Email Series</span>
+      <span class="eyebrow-dot"></span>
+    </div>
+
+    <h1 class="headline">
+      20 Days, 20 Ways
+      <em class="headline-accent">to Become a More Dominant Athlete</em>
+    </h1>
+
+    <div class="rule"></div>
+
+    <p class="subtext">20 daily insights delivered straight to your inbox — strength, speed, mindset, and performance, one sharp idea at a time. Completely free.</p>
+
+    <!-- Form -->
+    <form class="signup-form" id="dominant-form" novalidate>
+      <input
+        class="form-input"
+        type="text"
+        id="mce-FNAME"
+        name="FNAME"
+        placeholder="First Name"
+        autocomplete="given-name"
+      >
+      <input
+        class="form-input"
+        type="email"
+        id="mce-EMAIL"
+        name="EMAIL"
+        placeholder="Email Address"
+        required
+        autocomplete="email"
+      >
+      <div id="form-error"></div>
+      <button type="submit" class="submit-btn" id="dominant-submit">
+        → &nbsp;Send Me the 20 Days
+      </button>
+    </form>
+
+    <p class="fine-print">No spam. Unsubscribe anytime.</p>
+
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var form    = document.getElementById('dominant-form');
+  var emailEl = document.getElementById('mce-EMAIL');
+  var fnameEl = document.getElementById('mce-FNAME');
+  var btn     = document.getElementById('dominant-submit');
+  var errEl   = document.getElementById('form-error');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var email = emailEl.value.trim();
+    var fname = fnameEl.value.trim();
+
+    if (!email) {
+      errEl.textContent = 'Please enter your email address.';
+      errEl.style.display = 'block';
+      emailEl.focus();
+      return;
+    }
+
+    errEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    var cbName = 'mcCb_' + Date.now();
+
+    window[cbName] = function (data) {
+      delete window[cbName];
+      if (data.result === 'success') {
+        window.location.href = 'thank-you-dominant.html';
+      } else {
+        var msg = data.msg ? data.msg.replace(/<[^>]+>/g, '').replace(/^\d+ - /, '') : 'Something went wrong — please try again.';
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = '→  Send Me the 20 Days';
+      }
+    };
+
+    var url = 'https://app.us22.list-manage.com/subscribe/post-json'
+      + '?u=020c14cbcdd6f0f323ec3e923'
+      + '&id=3e0a8b521f'
+      + '&f_id=0052c2e1f0'
+      + '&EMAIL=' + encodeURIComponent(email)
+      + (fname ? '&FNAME=' + encodeURIComponent(fname) : '')
+      + '&b_020c14cbcdd6f0f323ec3e923_3e0a8b521f='
+      + '&c=' + cbName;
+
+    var script = document.createElement('script');
+    script.src = url;
+    script.onerror = function () {
+      errEl.textContent = 'Network error — please try again.';
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = '→  Send Me the 20 Days';
+    };
+    document.head.appendChild(script);
+  });
+})();
+</script>
+
+</body>
+</html>

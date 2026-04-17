@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — Meade Performance</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #080808;
+  --offwhite: #F5F2EC;
+  --grey: #111110;
+  --mid: #1A1A18;
+  --rule: #2A2A28;
+  --dim: #9A9A94;
+  --dim2: #6A6A66;
+}
+
+html, body {
+  height: 100%;
+  background: var(--black);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--offwhite);
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+}
+
+/* ── NAV STRIP ── */
+.nav-strip {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 20px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.nav-brand-main {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--offwhite);
+}
+
+.nav-brand-sep {
+  width: 16px;
+  height: 0.5px;
+  background: var(--dim2);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-brand-sub {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--dim2);
+}
+
+/* ── CARD ── */
+.card {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  width: 100%;
+  max-width: 780px;
+  border: 0.5px solid var(--rule);
+  background: var(--grey);
+  box-shadow:
+    0 24px 64px -12px rgba(0,0,0,0.6),
+    0 8px 24px -4px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+/* ── PHOTO ── */
+.photo-col {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.photo-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(0.92);
+}
+
+/* ── CONTENT ── */
+.content-col {
+  padding: 44px 44px 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 0.5px solid var(--rule);
+  gap: 0;
+}
+
+.eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--dim2);
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--offwhite);
+  margin-bottom: 20px;
+}
+
+.rule-line {
+  width: 28px;
+  height: 0.5px;
+  background: var(--rule);
+  margin-bottom: 20px;
+}
+
+.body-text {
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--dim);
+  margin-bottom: 14px;
+}
+
+.body-text:last-of-type {
+  margin-bottom: 28px;
+}
+
+/* ── DOWNLOAD BUTTON ── */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--offwhite);
+  color: var(--black);
+  text-decoration: none;
+  padding: 14px 20px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  transition: transform 150ms cubic-bezier(0.34,1.56,0.64,1), background 150ms ease;
+  align-self: flex-start;
+}
+
+.download-btn:hover {
+  background: #e8e5df;
+  transform: translateY(-1px);
+}
+
+.download-btn:active {
+  transform: translateY(1px);
+}
+
+.download-btn:focus-visible {
+  outline: 2px solid var(--dim);
+  outline-offset: 3px;
+}
+
+.download-btn svg {
+  flex-shrink: 0;
+}
+
+/* ── SIGN-OFF ── */
+.signoff {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--dim);
+  line-height: 1.6;
+}
+
+.signoff strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--offwhite);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 580px) {
+  .page { padding: 20px 16px; justify-content: flex-start; padding-top: 32px; }
+  .nav-strip { padding-bottom: 16px; }
+
+  .card { grid-template-columns: 1fr; }
+
+  .photo-col {
+    min-height: 240px;
+    max-height: 280px;
+  }
+
+  .content-col {
+    padding: 28px 24px 32px;
+    border-left: none;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .heading { font-size: 24px; }
+
+  .download-btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <!-- Nav -->
+  <div class="nav-strip">
+    <div class="nav-brand">
+      <span class="nav-brand-main">Meade</span>
+      <span class="nav-brand-sep"></span>
+      <span class="nav-brand-sub">Performance</span>
+    </div>
+  </div>
+
+  <!-- Card -->
+  <div class="card">
+
+    <!-- Left: Headshot -->
+    <div class="photo-col">
+      <img src="headshot.png" alt="Paddy Meade">
+    </div>
+
+    <!-- Right: Content -->
+    <div class="content-col">
+      <span class="eyebrow">You're in</span>
+      <h1 class="heading">Thanks for<br>signing up.</h1>
+      <div class="rule-line"></div>
+      <p class="body-text">Really appreciate it — means a lot. The guide is all yours, just hit the button below to grab it.</p>
+      <p class="body-text">I'll also drop it to your inbox so you've got it saved. If you don't see it, check your spam folder.</p>
+
+      <a class="download-btn" href="MP%20%20MICRO%20DOSING%20.pdf" download="Meade-Performance-Microdosing-Guide.pdf">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 1v7M3 5.5l3 3 3-3M1 10h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Download the guide
+      </a>
+
+      <div class="signoff">
+        Speak soon,<br>
+        <strong>Paddy</strong>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+</body>
+</html>
