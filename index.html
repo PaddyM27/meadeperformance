@@ -886,11 +886,8 @@ main, nav, footer, section { position: relative; z-index: 1; }
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 9px 0;
+  padding: 12px 0;
   border-bottom: 0.5px solid var(--rule);
-  font-size: 15px;
-  color: var(--dim);
-  line-height: 1.5;
 }
 
 .p-features li:last-child { border-bottom: none; }
@@ -899,12 +896,29 @@ main, nav, footer, section { position: relative; z-index: 1; }
   content: '✓';
   color: var(--dim);
   flex-shrink: 0;
-  font-size: 12px;
-  margin-top: 2px;
+  font-size: 11px;
+  margin-top: 3px;
   font-weight: 700;
 }
 
-.p-features li strong { color: var(--offwhite); font-weight: 600; }
+.p-feat-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--offwhite);
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.p-feat-sub {
+  display: block;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--dim);
+  line-height: 1.45;
+}
 
 /* CTA buttons */
 .p-ctas {
@@ -1460,11 +1474,11 @@ main, nav, footer, section { position: relative; z-index: 1; }
       <hr class="p-divider" />
 
       <ul class="p-features">
-        <li><strong>Personalised Programme</strong> — built from your onboarding questionnaire before Day 1</li>
-        <li><strong>Monthly Programme Updates</strong> — adjusted based on your end-of-month feedback</li>
-        <li><strong>Full App Delivery</strong> — access your training anytime, anywhere</li>
-        <li><strong>Community Access</strong> — train alongside other athletes on the same journey</li>
-        <li><strong>Season-Aware Programming</strong> — automatically adjusts for in-season, off-season &amp; pre-season</li>
+        <li><span><span class="p-feat-label">Personalised Programme</span><span class="p-feat-sub">Built from your onboarding questionnaire before Day 1</span></span></li>
+        <li><span><span class="p-feat-label">Monthly Programme Updates</span><span class="p-feat-sub">Adjusted every month based on your end-of-month feedback</span></span></li>
+        <li><span><span class="p-feat-label">Full App Delivery</span><span class="p-feat-sub">Access your training anytime, anywhere</span></span></li>
+        <li><span><span class="p-feat-label">Community Access</span><span class="p-feat-sub">Train alongside other athletes on the same journey</span></span></li>
+        <li><span><span class="p-feat-label">Season-Aware Programming</span><span class="p-feat-sub">Automatically adjusts for in-season, off-season &amp; pre-season</span></span></li>
       </ul>
 
       <div class="p-ctas">
