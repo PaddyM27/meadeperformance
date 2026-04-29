@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meade Performance — GAA S&C Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --black:#080808;
+  --white:#F5F2EC;
+  --grey:#111110;
+  --mid:#1A1A18;
+  --rule:#2A2A28;
+  --dim:#9A9A94;
+  --dim2:#6A6A66;
+}
+
+html{scroll-behavior:smooth;background:var(--black)}
+
+body{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  background:var(--black);
+  color:var(--white);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 48px;
+  height:60px;
+  background:rgba(8,8,8,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:0.5px solid var(--rule);
+}
+
+.nav-brand{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  text-decoration:none;
+}
+
+.nav-brand-main{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--white);
+}
+
+.nav-brand-sep{
+  width:24px;
+  height:0.5px;
+  background:var(--rule);
+  display:inline-block;
+  vertical-align:middle;
+}
+
+.nav-brand-sub{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:13px;
+  color:var(--dim);
+}
+
+.nav-cta{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--black);
+  background:var(--white);
+  padding:10px 20px;
+  text-decoration:none;
+  transition:opacity 150ms ease;
+}
+
+.nav-cta:hover{opacity:0.85}
+
+/* ── HERO ── */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end;
+  padding:0 80px 96px;
+  overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:url('./2.png') center center / cover no-repeat;
+  filter:grayscale(30%);
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(8,8,8,0.55) 0%,
+    rgba(8,8,8,0.35) 40%,
+    rgba(8,8,8,0.80) 75%,
+    rgba(8,8,8,0.96) 100%
+  );
+}
+
+.hero-grain{
+  position:absolute;
+  inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  max-width:900px;
+}
+
+.hero-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--dim);
+  border:0.5px solid var(--rule);
+  padding:8px 16px;
+  margin-bottom:32px;
+}
+
+.hero-headline{
+  font-size:clamp(52px,7.5vw,110px);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:0.87;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:28px;
+}
+
+.hero-sub{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:clamp(16px,1.6vw,20px);
+  color:var(--dim);
+  line-height:1.65;
+  max-width:560px;
+  margin-bottom:48px;
+}
+
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--black);
+  background:var(--white);
+  padding:16px 32px;
+  text-decoration:none;
+  transition:opacity 150ms ease, transform 150ms ease;
+}
+
+.hero-cta:hover{opacity:0.88;transform:translateY(-2px)}
+.hero-cta:active{transform:translateY(0)}
+
+/* ── WHY TRAIN ── */
+.why{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:0.5px solid var(--rule);
+}
+
+.why-photo{
+  position:relative;
+  overflow:hidden;
+  min-height:620px;
+  border-right:0.5px solid var(--rule);
+}
+
+.why-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  filter:grayscale(20%) contrast(1.05);
+}
+
+.why-photo-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right, transparent 60%, rgba(8,8,8,0.4) 100%);
+}
+
+.why-text{
+  padding:80px 72px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.section-label{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  color:var(--dim2);
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.section-label::before{
+  content:'';
+  width:24px;
+  height:0.5px;
+  background:var(--dim2);
+  flex-shrink:0;
+}
+
+.why-heading{
+  font-size:clamp(32px,3.5vw,52px);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:0.9;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.why-heading em{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--dim);
+  font-size:0.82em;
+  display:block;
+  margin-top:4px;
+}
+
+.why-body{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:17px;
+  color:var(--dim);
+  line-height:1.75;
+  margin-top:28px;
+  margin-bottom:36px;
+  max-width:460px;
+}
+
+.why-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border:0.5px solid var(--rule);
+  margin-top:8px;
+}
+
+.why-stat{
+  padding:24px 28px;
+  border-right:0.5px solid var(--rule);
+}
+
+.why-stat:last-child{border-right:none}
+
+.why-stat-num{
+  font-size:36px;
+  font-weight:700;
+  letter-spacing:-0.04em;
+  color:var(--white);
+  display:block;
+  line-height:1;
+  margin-bottom:4px;
+}
+
+.why-stat-label{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:13px;
+  color:var(--dim);
+}
+
+/* ── PROGRAMMES ── */
+.programmes{
+  padding:96px 0 80px;
+  border-top:0.5px solid var(--rule);
+}
+
+.programmes-header{
+  padding:0 80px 56px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+}
+
+.programmes-heading{
+  font-size:clamp(36px,4.5vw,64px);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:0.88;
+  text-transform:uppercase;
+}
+
+.programmes-heading em{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--dim);
+  display:block;
+  font-size:0.78em;
+}
+
+.programmes-hint{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:13px;
+  color:var(--dim2);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* Scrollable row */
+.programmes-track-wrap{
+  overflow:hidden;
+  position:relative;
+}
+
+.programmes-track{
+  display:flex;
+  gap:2px;
+  overflow-x:auto;
+  padding:0 80px 24px;
+  scroll-snap-type:x mandatory;
+  cursor:grab;
+  -webkit-overflow-scrolling:touch;
+}
+
+.programmes-track:active{cursor:grabbing}
+
+.programmes-track::-webkit-scrollbar{height:1px}
+.programmes-track::-webkit-scrollbar-track{background:var(--rule)}
+.programmes-track::-webkit-scrollbar-thumb{background:var(--dim2)}
+
+.prog-card{
+  flex:0 0 340px;
+  min-height:480px;
+  border:0.5px solid var(--rule);
+  background:var(--grey);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:36px 32px;
+  position:relative;
+  overflow:hidden;
+  scroll-snap-align:start;
+  transition:border-color 200ms ease;
+}
+
+.prog-card:hover{border-color:var(--dim2)}
+
+.prog-card-bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  transition:transform 400ms ease;
+}
+
+.prog-card:hover .prog-card-bg{transform:scale(1.03)}
+
+.prog-card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.5) 50%, rgba(8,8,8,0.1) 100%);
+}
+
+.prog-card-content{position:relative}
+
+.prog-tag{
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  color:var(--dim2);
+  margin-bottom:14px;
+}
+
+.prog-name{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  line-height:0.95;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:12px;
+}
+
+.prog-desc{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--dim);
+  line-height:1.55;
+  margin-bottom:24px;
+}
+
+.prog-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--white);
+  text-decoration:none;
+  border-bottom:0.5px solid var(--dim2);
+  padding-bottom:4px;
+  transition:color 150ms ease, border-color 150ms ease;
+}
+
+.prog-cta:hover{color:var(--white);border-color:var(--white)}
+
+/* ── FEATURES ── */
+.features{
+  padding:96px 80px;
+  border-top:0.5px solid var(--rule);
+  border-bottom:0.5px solid var(--rule);
+}
+
+.features-top{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:end;
+  margin-bottom:64px;
+}
+
+.features-heading{
+  font-size:clamp(36px,4vw,60px);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:0.88;
+  text-transform:uppercase;
+}
+
+.features-heading em{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--dim);
+  display:block;
+  font-size:0.78em;
+}
+
+.features-intro{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:16px;
+  color:var(--dim);
+  line-height:1.75;
+}
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  border:0.5px solid var(--rule);
+}
+
+.feat-item{
+  padding:40px 32px;
+  border-right:0.5px solid var(--rule);
+  position:relative;
+}
+
+.feat-item:last-child{border-right:none}
+
+.feat-icon{
+  width:32px;
+  height:32px;
+  margin-bottom:20px;
+  color:var(--dim2);
+}
+
+.feat-title{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:10px;
+}
+
+.feat-desc{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:14px;
+  color:var(--dim);
+  line-height:1.65;
+}
+
+/* ── PHONE ── */
+.phone-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:0.5px solid var(--rule);
+  min-height:600px;
+}
+
+.phone-visual{
+  background:var(--grey);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 48px;
+  border-right:0.5px solid var(--rule);
+  position:relative;
+  overflow:hidden;
+}
+
+.phone-visual::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at 30% 60%, rgba(245,242,236,0.03) 0%, transparent 70%);
+}
+
+/* CSS phone mockup */
+.phone-shell{
+  width:220px;
+  height:440px;
+  border:1.5px solid var(--rule);
+  border-radius:28px;
+  background:var(--black);
+  position:relative;
+  box-shadow:
+    0 0 0 8px var(--mid),
+    0 0 0 9px var(--rule),
+    0 32px 64px rgba(0,0,0,0.6);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+.phone-notch{
+  width:60px;
+  height:6px;
+  background:var(--rule);
+  border-radius:3px;
+  margin:14px auto 0;
+  flex-shrink:0;
+}
+
+.phone-screen{
+  flex:1;
+  padding:12px 14px;
+  overflow:hidden;
+}
+
+.phone-app-header{
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--dim2);
+  margin-bottom:10px;
+}
+
+.phone-app-title{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  text-transform:uppercase;
+  color:var(--white);
+  line-height:1;
+  margin-bottom:12px;
+}
+
+.phone-app-week{
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--dim2);
+  margin-bottom:8px;
+}
+
+.phone-session{
+  background:var(--mid);
+  border:0.5px solid var(--rule);
+  padding:8px 10px;
+  margin-bottom:4px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.phone-session-dot{
+  width:5px;
+  height:5px;
+  background:var(--white);
+  flex-shrink:0;
+}
+
+.phone-session-name{
+  font-size:7.5px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--white);
+}
+
+.phone-session-sub{
+  font-size:6.5px;
+  color:var(--dim2);
+  font-style:italic;
+  font-family:'EB Garamond',serif;
+  margin-left:auto;
+}
+
+.phone-progress{
+  margin-top:12px;
+}
+
+.phone-progress-label{
+  display:flex;
+  justify-content:space-between;
+  font-size:6.5px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--dim2);
+  margin-bottom:5px;
+}
+
+.phone-progress-bar{
+  height:2px;
+  background:var(--rule);
+  position:relative;
+}
+
+.phone-progress-fill{
+  position:absolute;
+  left:0;top:0;bottom:0;
+  background:var(--white);
+  width:62%;
+}
+
+.phone-text{
+  padding:80px 72px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.phone-heading{
+  font-size:clamp(32px,3.5vw,52px);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:0.9;
+  text-transform:uppercase;
+  margin-bottom:28px;
+  margin-top:20px;
+}
+
+.phone-heading em{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--dim);
+  display:block;
+  font-size:0.78em;
+}
+
+.phone-points{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  border:0.5px solid var(--rule);
+}
+
+.phone-point{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  padding:20px 24px;
+  border-bottom:0.5px solid var(--rule);
+}
+
+.phone-point:last-child{border-bottom:none}
+
+.phone-point-num{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.2em;
+  color:var(--dim2);
+  flex-shrink:0;
+  margin-top:2px;
+}
+
+.phone-point-text{
+  font-size:13px;
+  color:var(--white);
+  font-weight:700;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+
+.phone-point-sub{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:13px;
+  color:var(--dim);
+  margin-top:3px;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials{
+  padding:96px 80px;
+  border-top:0.5px solid var(--rule);
+}
+
+.testimonials-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:56px;
+}
+
+.testimonials-heading{
+  font-size:clamp(36px,4.5vw,64px);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:0.88;
+  text-transform:uppercase;
+}
+
+.testimonials-heading em{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--dim);
+  display:block;
+  font-size:0.78em;
+}
+
+.testimonials-count{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:14px;
+  color:var(--dim);
+}
+
+.testimonials-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2px;
+}
+
+.testi-card{
+  background:var(--grey);
+  border:0.5px solid var(--rule);
+  padding:40px 36px;
+}
+
+.testi-quote{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:17px;
+  color:var(--white);
+  line-height:1.65;
+  margin-bottom:32px;
+  position:relative;
+}
+
+.testi-quote::before{
+  content:'\201C';
+  font-size:48px;
+  color:var(--rule);
+  line-height:1;
+  display:block;
+  margin-bottom:8px;
+}
+
+.testi-meta{
+  border-top:0.5px solid var(--rule);
+  padding-top:20px;
+}
+
+.testi-name{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--white);
+  display:block;
+  margin-bottom:4px;
+}
+
+.testi-role{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:13px;
+  color:var(--dim);
+}
+
+/* ── FAQ ── */
+.faq{
+  padding:96px 80px;
+  border-top:0.5px solid var(--rule);
+}
+
+.faq-layout{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:80px;
+  align-items:start;
+}
+
+.faq-heading{
+  font-size:clamp(36px,4vw,56px);
+  font-weight:700;
+  letter-spacing:-0.04em;
+  line-height:0.88;
+  text-transform:uppercase;
+  position:sticky;
+  top:80px;
+}
+
+.faq-heading em{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-weight:400;
+  color:var(--dim);
+  display:block;
+  font-size:0.78em;
+}
+
+.faq-list{display:flex;flex-direction:column;gap:0}
+
+.faq-item{
+  border-bottom:0.5px solid var(--rule);
+}
+
+.faq-item:first-child{border-top:0.5px solid var(--rule)}
+
+.faq-q{
+  width:100%;
+  background:none;
+  border:none;
+  color:var(--white);
+  font-family:'Helvetica Neue',Helvetica,sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  text-align:left;
+  padding:24px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  gap:24px;
+}
+
+.faq-q:hover{color:var(--dim)}
+
+.faq-indicator{
+  font-size:18px;
+  font-weight:300;
+  color:var(--dim2);
+  flex-shrink:0;
+  transition:transform 250ms ease;
+  font-family:'Helvetica Neue',Helvetica,sans-serif;
+}
+
+.faq-item.open .faq-indicator{transform:rotate(45deg)}
+
+.faq-a{
+  display:none;
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:16px;
+  color:var(--dim);
+  line-height:1.75;
+  padding-bottom:28px;
+  max-width:560px;
+}
+
+.faq-item.open .faq-a{display:block}
+
+/* ── FOOTER ── */
+footer{
+  border-top:0.5px solid var(--rule);
+  background:var(--black);
+}
+
+.footer-main{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:0;
+  padding:64px 80px;
+  border-bottom:0.5px solid var(--rule);
+}
+
+.footer-brand-main{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--white);
+  display:block;
+  margin-bottom:4px;
+}
+
+.footer-brand-sub{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:13px;
+  color:var(--dim);
+  display:block;
+  margin-bottom:16px;
+}
+
+.footer-tagline{
+  font-size:11px;
+  color:var(--dim2);
+  line-height:1.6;
+  max-width:200px;
+}
+
+.footer-nav{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  justify-content:center;
+  align-items:center;
+}
+
+.footer-nav a{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--dim2);
+  text-decoration:none;
+  transition:color 150ms ease;
+}
+
+.footer-nav a:hover{color:var(--white)}
+
+.footer-social{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:center;
+  gap:8px;
+}
+
+.footer-social-label{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--dim2);
+}
+
+.footer-social-handle{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--dim);
+  text-decoration:none;
+  transition:color 150ms ease;
+}
+
+.footer-social-handle:hover{color:var(--white)}
+
+.footer-bottom{
+  padding:20px 80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.footer-copy{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--dim2);
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:0 32px}
+  .hero{padding:0 48px 80px}
+  .why-text{padding:60px 48px}
+  .programmes-header{padding:0 48px 48px}
+  .programmes-track{padding:0 48px 20px}
+  .features{padding:72px 48px}
+  .phone-text{padding:60px 48px}
+  .testimonials{padding:72px 48px}
+  .faq{padding:72px 48px}
+  .footer-main{padding:48px}
+  .footer-bottom{padding:20px 48px}
+}
+
+@media(max-width:768px){
+  nav{padding:0 24px;height:52px}
+  .hero{padding:0 24px 64px}
+  .hero-headline{font-size:48px}
+  .why{grid-template-columns:1fr}
+  .why-photo{min-height:340px;border-right:none;border-bottom:0.5px solid var(--rule)}
+  .why-text{padding:48px 24px}
+  .programmes-header{padding:0 24px 40px;flex-direction:column;align-items:flex-start;gap:8px}
+  .programmes-track{padding:0 24px 16px}
+  .prog-card{flex:0 0 280px;min-height:400px}
+  .features{padding:64px 24px}
+  .features-top{grid-template-columns:1fr;gap:24px}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .feat-item:nth-child(2){border-right:none}
+  .feat-item:nth-child(3){border-top:0.5px solid var(--rule);border-right:0.5px solid var(--rule)}
+  .feat-item:last-child{border-top:0.5px solid var(--rule)}
+  .phone-section{grid-template-columns:1fr}
+  .phone-visual{border-right:none;border-bottom:0.5px solid var(--rule);padding:60px 24px}
+  .phone-text{padding:48px 24px}
+  .testimonials{padding:64px 24px}
+  .testimonials-grid{grid-template-columns:1fr}
+  .testimonials-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .faq{padding:64px 24px}
+  .faq-layout{grid-template-columns:1fr;gap:40px}
+  .faq-heading{position:static}
+  .footer-main{grid-template-columns:1fr;padding:40px 24px;gap:40px}
+  .footer-social{align-items:flex-start}
+  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="./home.html" class="nav-brand">
+    <span class="nav-brand-main">Meade</span>
+    <span class="nav-brand-sep"></span>
+    <span class="nav-brand-sub">Performance</span>
+  </a>
+  <a href="#programmes" class="nav-cta">Join Now</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-pill reveal">★ &nbsp; GAA-Specific S&amp;C Coaching · 100+ Athletes</div>
+    <h1 class="hero-headline reveal">Strength &amp;<br>Conditioning<br><span style="font-family:'EB Garamond',serif;font-style:italic;font-weight:400;font-size:0.75em;color:var(--dim)">Tailored to your sport.</span></h1>
+    <p class="hero-sub reveal">GAA-specific strength &amp; conditioning built by a player who still plays at the highest level. No generic plans. No guesswork. Just a clear system that shows up on match day.</p>
+    <a href="#programmes" class="hero-cta reveal">Choose a Programme &nbsp;↓</a>
+  </div>
+</section>
+
+<!-- ── WHY TRAIN WITH ME ── -->
+<section class="why" id="about">
+  <div class="why-photo">
+    <img src="./headshot.png" alt="Paddy Meade">
+    <div class="why-photo-overlay"></div>
+  </div>
+  <div class="why-text">
+    <div class="section-label reveal">The Coach</div>
+    <h2 class="why-heading reveal">
+      Why Train
+      <em>with Paddy Meade</em>
+    </h2>
+    <p class="why-body reveal">
+      I'm a GAA player who has competed at the highest club and inter-county level — and I've built every programme I offer from that experience. Over 100 athletes have come through my system. The reason it works is simple: it's built around your sport, not borrowed from a general fitness template. Every training block, every session, every adjustment is designed to make you a better athlete on match day — not just a better lifter in the gym.
+    </p>
+    <div class="why-stats reveal">
+      <div class="why-stat">
+        <span class="why-stat-num">100+</span>
+        <span class="why-stat-label">Athletes coached</span>
+      </div>
+      <div class="why-stat">
+        <span class="why-stat-num">8 wks</span>
+        <span class="why-stat-label">Average transformation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAMMES ── -->
+<section class="programmes" id="programmes">
+  <div class="programmes-header">
+    <div>
+      <div class="section-label reveal">Find your programme</div>
+      <h2 class="programmes-heading reveal">
+        Online
+        <em>Programmes</em>
+      </h2>
+    </div>
+    <span class="programmes-hint reveal">← Drag to explore →</span>
+  </div>
+
+  <div class="programmes-track-wrap">
+    <div class="programmes-track" id="progTrack">
+
+      <!-- Card 1 -->
+      <div class="prog-card">
+        <div class="prog-card-bg" style="background-image:url('./3.png')"></div>
+        <div class="prog-card-overlay"></div>
+        <div class="prog-card-content">
+          <div class="prog-tag">Group Programme · 8 Weeks</div>
+          <div class="prog-name">Athlete<br>Accelerator</div>
+          <div class="prog-desc">The flagship programme. A periodised 8-week S&amp;C system built for GAA athletes — delivered through the app and adjusted every month based on your feedback.</div>
+          <a href="https://meadeperformance.fitr.training/p/athleteaccelerator" class="prog-cta" target="_blank" rel="noopener">Join Now →</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="prog-card">
+        <div class="prog-card-bg" style="background-image:url('./1.png')"></div>
+        <div class="prog-card-overlay"></div>
+        <div class="prog-card-content">
+          <div class="prog-tag">Online Programme</div>
+          <div class="prog-name">Built To<br>Perform</div>
+          <div class="prog-desc">A structured training programme for athletes who want to build serious strength and athleticism. Complete, progressive, and built to last beyond the gym.</div>
+          <a href="#" class="prog-cta">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="prog-card">
+        <div class="prog-card-bg" style="background-image:url('./2.png')"></div>
+        <div class="prog-card-overlay"></div>
+        <div class="prog-card-content">
+          <div class="prog-tag">1:1 Coaching</div>
+          <div class="prog-name">Meade<br>Performance 1:1</div>
+          <div class="prog-desc">Fully bespoke online coaching. Your sport, your schedule, your goals — built and monitored by Paddy personally with regular check-ins and direct access.</div>
+          <a href="#" class="prog-cta">Enquire →</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="prog-card">
+        <div class="prog-card-bg" style="background-image:url('./4.png')"></div>
+        <div class="prog-card-overlay"></div>
+        <div class="prog-card-content">
+          <div class="prog-tag">Standalone Plans</div>
+          <div class="prog-name">One Off<br>Programmes</div>
+          <div class="prog-desc">Standalone training plans for athletes who know what they need. Purchase once, own forever — structured, periodised, and ready to run immediately.</div>
+          <a href="#" class="prog-cta">Browse Plans →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN FEATURES ── -->
+<section class="features" id="features">
+  <div class="features-top">
+    <div>
+      <div class="section-label reveal">What you get</div>
+      <h2 class="features-heading reveal">
+        Main
+        <em>Features</em>
+      </h2>
+    </div>
+    <p class="features-intro reveal">Every programme is built on the same foundation — a system that has been tested, refined, and proven across 100+ athletes at every level of the game.</p>
+  </div>
+
+  <div class="features-grid reveal">
+    <div class="feat-item">
+      <svg class="feat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1">
+        <rect x="4" y="4" width="24" height="24" rx="0"/>
+        <path d="M10 16l4 4 8-8"/>
+      </svg>
+      <div class="feat-title">Personalised Programming</div>
+      <div class="feat-desc">Built around your body, your needs, and your schedule — not a generic template.</div>
+    </div>
+    <div class="feat-item">
+      <svg class="feat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="16" cy="16" r="12"/>
+        <path d="M16 8v8l4 4"/>
+      </svg>
+      <div class="feat-title">Season-Aware Training</div>
+      <div class="feat-desc">Automatically adjusts for in-season, off-season, and pre-season demands. No guessing when to push and when to recover.</div>
+    </div>
+    <div class="feat-item">
+      <svg class="feat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1">
+        <rect x="8" y="4" width="16" height="24" rx="2"/>
+        <path d="M12 10h8M12 14h8M12 18h5"/>
+      </svg>
+      <div class="feat-title">Full App Delivery</div>
+      <div class="feat-desc">Your programme lives in the Fitr app — workouts, videos, progress tracking and your full history in one place.</div>
+    </div>
+    <div class="feat-item" style="border-right:none">
+      <svg class="feat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M16 4C10 4 4 9 4 16s6 12 12 12 12-5 12-12c0-3-1.5-6-4-8"/>
+        <circle cx="16" cy="16" r="4"/>
+      </svg>
+      <div class="feat-title">Community &amp; Support</div>
+      <div class="feat-desc">Train alongside other athletes on the same journey. Group support, monthly calls, and a community that gets what you're working toward.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHONE ── -->
+<section class="phone-section" id="app">
+  <div class="phone-visual">
+    <div class="phone-shell">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-app-header">Meade Performance</div>
+        <div class="phone-app-title">Week 4<br>Block 2</div>
+        <div class="phone-app-week">This Week</div>
+        <div class="phone-session">
+          <div class="phone-session-dot"></div>
+          <div>
+            <div class="phone-session-name">Lower Power</div>
+          </div>
+          <div class="phone-session-sub">Complete</div>
+        </div>
+        <div class="phone-session">
+          <div class="phone-session-dot" style="background:var(--dim2)"></div>
+          <div>
+            <div class="phone-session-name">Upper Strength</div>
+          </div>
+          <div class="phone-session-sub">Today</div>
+        </div>
+        <div class="phone-session" style="opacity:0.45">
+          <div class="phone-session-dot" style="background:var(--rule)"></div>
+          <div>
+            <div class="phone-session-name">Speed &amp; Conditioning</div>
+          </div>
+          <div class="phone-session-sub">Thu</div>
+        </div>
+        <div class="phone-progress" style="margin-top:16px">
+          <div class="phone-progress-label">
+            <span>Block Progress</span>
+            <span>62%</span>
+          </div>
+          <div class="phone-progress-bar">
+            <div class="phone-progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phone-text">
+    <div class="section-label reveal">App Delivery</div>
+    <h2 class="phone-heading reveal">
+      Your Programme,
+      <em>In Your Pocket</em>
+    </h2>
+    <ul class="phone-points reveal">
+      <li class="phone-point">
+        <span class="phone-point-num">01</span>
+        <div>
+          <div class="phone-point-text">Delivered via Fitr</div>
+          <div class="phone-point-sub">Your full programme — sessions, sets, reps, videos — in one app. Available on iOS and Android.</div>
+        </div>
+      </li>
+      <li class="phone-point">
+        <span class="phone-point-num">02</span>
+        <div>
+          <div class="phone-point-text">Progress Tracking</div>
+          <div class="phone-point-sub">Log every session and watch your numbers move. Your history is always there — week to week, block to block.</div>
+        </div>
+      </li>
+      <li class="phone-point">
+        <span class="phone-point-num">03</span>
+        <div>
+          <div class="phone-point-text">Updated Monthly</div>
+          <div class="phone-point-sub">Your programme adjusts every month based on your feedback and results. Nothing stays static.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div>
+      <div class="section-label reveal">What athletes say</div>
+      <h2 class="testimonials-heading reveal">
+        Testimonials
+      </h2>
+    </div>
+    <span class="testimonials-count reveal">100+ athletes &amp; counting</span>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">Gaining confidence. I have had a rough 12–18 months with hamstring injuries but I'm back hitting close to my max speed again. In collective sessions I can take huge confidence in the work I'm doing — I know it's leaving me in the best position to perform.</div>
+      <div class="testi-meta">
+        <span class="testi-name">Conor</span>
+        <span class="testi-role">Senior Club &amp; Inter County Athlete</span>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">On the S&amp;C side I have become stronger in all of my main compounds and accessory lifts, I feel more powerful in my plyo, my movement efficiency feels a lot smoother and as a result I feel faster in my pitch sessions.</div>
+      <div class="testi-meta">
+        <span class="testi-name">Darragh</span>
+        <span class="testi-role">Club Athlete</span>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">I always trained hard but never really knew if what I was doing was right. Having a programme built specifically for me and my sport changed everything. I feel stronger, sharper, and way more confident going into matches.</div>
+      <div class="testi-meta">
+        <span class="testi-name">Jamie</span>
+        <span class="testi-role">Club Athlete</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq" id="faq">
+  <div class="faq-layout">
+    <div>
+      <div class="section-label reveal">Common questions</div>
+      <h2 class="faq-heading reveal">
+        FAQ
+      </h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What sport is this for?
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-a">The Athlete Accelerator is built mainly for GAA athletes. If you play a different sport, you'd be better suited to the 1:1 programme where everything is built specifically around you. <a href="mailto:meadeperformance@gmail.com" style="color:var(--white)">Enquire here.</a></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do I need to be a certain level to join?
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-a">No specific level required. You need to be serious about improving and willing to be consistent. Club athletes at all levels — junior to senior — have gone through this system and seen real results.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How much time per week does this take?
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-a">Sessions are short and built for real life — typically 2–3 S&amp;C sessions per week, each 45–60 minutes. Everything is structured around your existing sport training and matches so you're not adding hours on top of an already full schedule.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What equipment do I need?
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-a">Access to a gym with a barbell and space to move or run. A standard gym with a squat rack and open floor space is everything you need.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How do I get started?
+          <span class="faq-indicator">+</span>
+        </button>
+        <div class="faq-a">Click "Join Now" to go straight to the Athlete Accelerator, or browse all programmes above. Once you join, your programme lands in the Training App within 24 hours. Day 1 is your baseline assessment — everything from Week 1 is built on real data.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <span class="footer-brand-main">Meade Performance</span>
+      <span class="footer-brand-sub">GAA S&amp;C Coaching</span>
+      <div class="footer-tagline">Strength &amp; conditioning built for athletes who want to dominate their sport.</div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#programmes">Programmes</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="footer-social">
+      <span class="footer-social-label">Follow</span>
+      <a href="https://instagram.com/paddymeadeperformance" class="footer-social-handle" target="_blank" rel="noopener">@paddymeadeperformance</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Meade Performance. All rights reserved.</span>
+    <span class="footer-copy">paddy.tmeade@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+    btn.setAttribute('aria-expanded', !isOpen);
+  });
+});
+
+// ── Reveal on scroll ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── Drag scroll on programmes track ──
+const track = document.getElementById('progTrack');
+let isDown = false, startX, scrollLeft;
+
+track.addEventListener('mousedown', e => {
+  isDown = true;
+  track.style.cursor = 'grabbing';
+  startX = e.pageX - track.offsetLeft;
+  scrollLeft = track.scrollLeft;
+});
+track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
+track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
+track.addEventListener('mousemove', e => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - track.offsetLeft;
+  track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+});
+</script>
+</body>
+</html>
