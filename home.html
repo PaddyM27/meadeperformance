@@ -29,19 +29,15 @@ body{
 }
 
 /* ── NAV ── */
-nav{
+nav.main-nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;justify-content:center;
   padding:0 48px;height:60px;
   background:rgba(8,8,8,0.92);backdrop-filter:blur(12px);
   border-bottom:0.5px solid var(--rule);
 }
-.nav-brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
-.nav-brand-main{font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--white)}
-.nav-brand-sep{width:24px;height:0.5px;background:var(--rule);display:inline-block;vertical-align:middle}
-.nav-brand-sub{font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim)}
-.nav-cta{font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--black);background:var(--white);padding:10px 20px;text-decoration:none;transition:opacity 150ms ease}
-.nav-cta:hover{opacity:0.85}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand-main{font-size:13px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--white)}
 
 /* ── HERO ── */
 .hero{
@@ -53,9 +49,10 @@ nav{
 .hero-bg{position:absolute;inset:0;background:url('./2.png') center center/cover no-repeat;filter:grayscale(30%)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,0.65) 0%,rgba(8,8,8,0.45) 40%,rgba(8,8,8,0.88) 75%,rgba(8,8,8,0.97) 100%)}
 .hero-grain{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");pointer-events:none}
-.hero-content{position:relative;max-width:1000px;display:flex;flex-direction:column;align-items:center}
+.hero-content{position:relative;max-width:1280px;width:100%;display:flex;flex-direction:column;align-items:center}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim);border:0.5px solid var(--rule);padding:8px 16px;margin-bottom:32px}
 .hero-headline{font-size:clamp(44px,6.5vw,100px);font-weight:700;letter-spacing:-0.04em;line-height:0.88;text-transform:uppercase;color:var(--white);margin-bottom:48px}
+.hero-headline .hl{display:block}
 .hero-cta{display:inline-flex;align-items:center;gap:12px;font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--black);background:var(--white);padding:16px 36px;text-decoration:none;transition:opacity 150ms ease, transform 150ms ease}
 .hero-cta:hover{opacity:0.88;transform:translateY(-2px)}
 .hero-cta:active{transform:translateY(0)}
@@ -67,9 +64,11 @@ nav{
   text-align:center;
 }
 .quote-band-text{
-  font-family:'EB Garamond',serif;font-style:italic;
-  font-size:clamp(20px,2.2vw,30px);
-  color:var(--dim);line-height:1.55;max-width:760px;margin:0 auto;
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight:700;font-style:normal;
+  font-size:clamp(22px,2.4vw,34px);
+  letter-spacing:-0.02em;line-height:1.15;
+  color:var(--white);max-width:800px;margin:0 auto;text-transform:uppercase;
 }
 
 /* ── WHY TRAIN ── */
@@ -103,7 +102,7 @@ nav{
 .programmes{padding:96px 0 80px;border-top:0.5px solid var(--rule)}
 .programmes-header{padding:0 80px 56px;text-align:center}
 .programmes-heading{font-size:clamp(36px,4.5vw,64px);font-weight:700;letter-spacing:-0.04em;line-height:0.88;text-transform:uppercase}
-.programmes-heading em{font-family:'EB Garamond',serif;font-style:italic;font-weight:400;color:var(--dim);display:block;font-size:0.78em}
+.programmes-heading em{display:none}
 .programmes-hint{font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim2);margin-top:16px}
 
 .programmes-track-wrap{overflow:hidden;position:relative}
@@ -140,7 +139,7 @@ nav{
 .features{border-top:0.5px solid var(--rule)}
 .features-header{padding:80px 80px 64px;text-align:center}
 .features-heading{font-size:clamp(36px,4vw,60px);font-weight:700;letter-spacing:-0.04em;line-height:0.88;text-transform:uppercase}
-.features-heading em{font-family:'EB Garamond',serif;font-style:italic;font-weight:400;color:var(--dim);display:block;font-size:0.78em}
+.features-heading em{display:none}
 
 .features-grid{
   display:grid;grid-template-columns:1fr 1fr;
@@ -164,8 +163,8 @@ nav{
 
 /* ── PHONE ── */
 .phone-section{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--rule);min-height:600px}
-.phone-visual{background:var(--grey);display:flex;align-items:center;justify-content:center;padding:80px 48px;border-right:0.5px solid var(--rule);position:relative;overflow:hidden}
-.phone-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(245,242,236,0.03) 0%,transparent 70%)}
+.phone-visual{background:url('./1.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;padding:80px 48px;border-right:0.5px solid var(--rule);position:relative;overflow:hidden}
+.phone-visual::before{content:'';position:absolute;inset:0;background:rgba(8,8,8,0.72)}
 .phone-shell{width:220px;height:440px;border:1.5px solid var(--rule);border-radius:28px;background:var(--black);position:relative;box-shadow:0 0 0 8px var(--mid),0 0 0 9px var(--rule),0 32px 64px rgba(0,0,0,0.6);overflow:hidden;display:flex;flex-direction:column}
 .phone-notch{width:60px;height:6px;background:var(--rule);border-radius:3px;margin:14px auto 0;flex-shrink:0}
 .phone-screen{flex:1;padding:12px 14px;overflow:hidden}
@@ -250,7 +249,7 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  nav{padding:0 32px}
+  nav.main-nav{padding:0 32px}
   .hero{padding:0 48px}
   .quote-band{padding:56px 48px}
   .why-text{padding:60px 48px}
@@ -266,41 +265,56 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
 }
 
 @media(max-width:768px){
-  nav{padding:0 24px;height:52px}
-  .hero{padding:0 24px}
-  .hero-headline{font-size:40px}
-  .quote-band{padding:48px 24px}
+  nav.main-nav{padding:0 20px;height:52px}
+  .hero{padding:0 20px;min-height:100svh}
+  .hero-pill{font-size:8px;padding:6px 12px}
+  .hero-headline{font-size:clamp(36px,10vw,52px);line-height:0.9}
+  .hero-headline .hl{display:inline}
+  .hero-headline .hl::after{content:' '}
+  .hero-cta{font-size:9px;padding:14px 28px}
+  .quote-band{padding:48px 20px}
+  .quote-band-text{font-size:clamp(18px,5vw,24px)}
   .why{grid-template-columns:1fr}
-  .why-photo{min-height:340px;border-right:none;border-bottom:0.5px solid var(--rule)}
-  .why-text{padding:48px 24px}
-  .programmes-header{padding:0 24px 40px}
-  .programmes-track{padding:0 24px 16px}
-  .prog-card{flex:0 0 85vw;min-height:440px}
-  .features-header{padding:48px 24px 32px}
+  .why-photo{min-height:360px;border-right:none;border-bottom:0.5px solid var(--rule)}
+  .why-text{padding:48px 20px}
+  .why-body{font-size:16px;max-width:100%}
+  .programmes{padding:64px 0 56px}
+  .programmes-header{padding:0 20px 36px}
+  .programmes-track{padding:0 20px 16px;gap:12px}
+  .prog-card{flex:0 0 82vw;min-height:440px}
+  .features-header{padding:48px 20px 32px}
   .features-grid{grid-template-columns:1fr}
-  .feat-item{padding:40px 32px;min-height:auto}
+  .feat-item{padding:40px 28px;min-height:auto}
   .phone-section{grid-template-columns:1fr}
-  .phone-visual{border-right:none;border-bottom:0.5px solid var(--rule);padding:60px 24px}
-  .phone-text{padding:48px 24px}
-  .testimonials{padding:64px 24px}
-  .testi-card{padding:40px 32px}
-  .faq{padding:64px 24px}
-  .footer-main{grid-template-columns:1fr;padding:40px 24px;gap:40px}
+  .phone-visual{border-right:none;border-bottom:0.5px solid var(--rule);padding:60px 20px;min-height:400px}
+  .phone-text{padding:48px 20px}
+  .phone-heading{font-size:clamp(28px,8vw,40px)}
+  .testimonials{padding:64px 20px}
+  .testi-card{padding:36px 28px}
+  .testi-quote{font-size:17px}
+  .faq{padding:64px 20px}
+  .faq-q{font-size:12px}
+  .footer-main{grid-template-columns:1fr;padding:40px 20px;gap:36px}
   .footer-social{align-items:flex-start}
-  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
+  .footer-bottom{padding:16px 20px;flex-direction:column;gap:8px;text-align:center}
+}
+
+@media(max-width:480px){
+  .hero-headline{font-size:36px}
+  .quote-band-text{font-size:18px}
+  .prog-card{flex:0 0 88vw}
+  .testi-card{padding:28px 20px}
+  .feat-item{padding:32px 20px}
 }
 </style>
 </head>
 <body>
 
 <!-- ── NAV ── -->
-<nav>
-  <a href="./home.html" class="nav-brand">
-    <span class="nav-brand-main">Meade</span>
-    <span class="nav-brand-sep"></span>
-    <span class="nav-brand-sub">Performance</span>
+<nav class="main-nav">
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-main">Meade Performance</span>
   </a>
-  <a href="#programmes" class="nav-cta">Join Now</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -310,8 +324,8 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
   <div class="hero-grain"></div>
   <div class="hero-content">
     <div class="hero-pill reveal">★ &nbsp; S&amp;C Coaching · 100+ Athletes</div>
-    <h1 class="hero-headline reveal">Online Strength &amp;<br>Conditioning<br>Tailored to your Goals</h1>
-    <a href="#programmes" class="hero-cta reveal">Choose a Programme &nbsp;↓</a>
+    <h1 class="hero-headline reveal"><span class="hl">Online Strength &amp;</span><span class="hl">Conditioning Tailored</span><span class="hl">To your Goals</span></h1>
+    <a href="#programmes" class="hero-cta reveal">Choose a Programme</a>
   </div>
 </section>
 
@@ -335,7 +349,7 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
     <p class="why-body reveal">
       I'm Paddy Meade, an Inter County GAA Athlete turned S&amp;C Coach with 10+ years experience working with Athletes across multiple sports. I have a Sports Science degree and coaching certifications. This experience helps me bring a unique athlete-coach perspective to my clients. Meade Performance Coaching offers personalized One to One and Group Coaching, including tailored programming and regular check-ins. Are you ready to achieve your fitness goals? Start training now!
     </p>
-    <a href="#programmes" class="why-cta reveal">Choose A Programme →</a>
+    <a href="#programmes" class="why-cta reveal">Choose A Programme</a>
   </div>
 </section>
 
@@ -343,10 +357,7 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
 <section class="programmes" id="programmes">
   <div class="programmes-header">
     <div class="section-label centered reveal">Find your programme</div>
-    <h2 class="programmes-heading reveal">
-      Online
-      <em>Programmes</em>
-    </h2>
+    <h2 class="programmes-heading reveal">Online Programmes</h2>
     <p class="programmes-hint reveal">← Drag to explore →</p>
   </div>
 
@@ -357,9 +368,8 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
         <div class="prog-card-bg" style="background-image:url('./3.png')"></div>
         <div class="prog-card-overlay"></div>
         <div class="prog-card-content">
-          <div class="prog-tag">Group Programme · 8 Weeks</div>
           <div class="prog-name">Athlete<br>Accelerator</div>
-          <div class="prog-desc">The flagship programme. A periodised 8-week S&amp;C system built for GAA athletes — delivered through the app and adjusted every month based on your feedback.</div>
+          <div class="prog-desc">A personalised S&amp;C Blueprint built for you and your sport.</div>
           <a href="https://meadeperformance.fitr.training/p/athleteaccelerator" class="prog-cta" target="_blank" rel="noopener">Join Now →</a>
         </div>
       </div>
@@ -368,7 +378,6 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
         <div class="prog-card-bg" style="background-image:url('./1.png')"></div>
         <div class="prog-card-overlay"></div>
         <div class="prog-card-content">
-          <div class="prog-tag">Online Programme</div>
           <div class="prog-name">Built To<br>Perform</div>
           <div class="prog-desc">A structured training programme for athletes who want to build serious strength and athleticism. Complete, progressive, and built to last beyond the gym.</div>
           <a href="#" class="prog-cta">Learn More →</a>
@@ -379,7 +388,6 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
         <div class="prog-card-bg" style="background-image:url('./2.png')"></div>
         <div class="prog-card-overlay"></div>
         <div class="prog-card-content">
-          <div class="prog-tag">1:1 Coaching</div>
           <div class="prog-name">Meade<br>Performance 1:1</div>
           <div class="prog-desc">Fully bespoke online coaching. Your sport, your schedule, your goals — built and monitored by Paddy personally with regular check-ins and direct access.</div>
           <a href="#" class="prog-cta">Enquire →</a>
@@ -390,7 +398,6 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
         <div class="prog-card-bg" style="background-image:url('./4.png')"></div>
         <div class="prog-card-overlay"></div>
         <div class="prog-card-content">
-          <div class="prog-tag">Standalone Plans</div>
           <div class="prog-name">One Off<br>Programmes</div>
           <div class="prog-desc">Standalone training plans for athletes who know what they need. Purchase once, own forever — structured, periodised, and ready to run immediately.</div>
           <a href="#" class="prog-cta">Browse Plans →</a>
@@ -405,10 +412,7 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
 <section class="features" id="features">
   <div class="features-header">
     <div class="section-label centered reveal">What you get</div>
-    <h2 class="features-heading reveal">
-      Main
-      <em>Features</em>
-    </h2>
+    <h2 class="features-heading reveal">Main Features</h2>
   </div>
 
   <div class="features-grid">
@@ -510,8 +514,8 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
       <li class="phone-point">
         <span class="phone-point-num">03</span>
         <div>
-          <div class="phone-point-text">Updated Monthly</div>
-          <div class="phone-point-sub">Your programme adjusts every month based on your feedback and results. Nothing stays static.</div>
+          <div class="phone-point-text">Updated Regularly</div>
+          <div class="phone-point-sub">Your programme adjusts based on your feedback and results. Nothing stays static.</div>
         </div>
       </li>
     </ul>
@@ -576,7 +580,7 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
         What sport is this for?
         <span class="faq-indicator">+</span>
       </button>
-      <div class="faq-a">The Athlete Accelerator is built mainly for GAA athletes. If you play a different sport, you'd be better suited to the 1:1 programme where everything is built specifically around you. <a href="mailto:meadeperformance@gmail.com" style="color:var(--white)">Enquire here.</a></div>
+      <div class="faq-a">Our programmes are built for all team sport athletes unless specified otherwise. If you're unsure which programme suits your sport, <a href="mailto:meadeperformance@gmail.com" style="color:var(--white)">get in touch here.</a></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" aria-expanded="false">
@@ -604,7 +608,7 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
         How do I get started?
         <span class="faq-indicator">+</span>
       </button>
-      <div class="faq-a">Click "Join Now" to go straight to the Athlete Accelerator, or browse all programmes above. Once you join, your programme lands in the Training App within 24 hours. Day 1 is your baseline assessment — everything from Week 1 is built on real data.</div>
+      <div class="faq-a">Click one of the programmes above and follow the instructions to get started.</div>
     </div>
   </div>
 </section>
