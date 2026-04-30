@@ -167,20 +167,8 @@ nav.main-nav{
 .phone-section{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--rule);min-height:600px}
 .phone-visual{background:url('./1.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;padding:80px 48px;border-right:0.5px solid var(--rule);position:relative;overflow:hidden}
 .phone-visual::before{content:'';position:absolute;inset:0;background:rgba(8,8,8,0.72)}
-.phone-shell{width:220px;height:440px;border:1.5px solid var(--rule);border-radius:28px;background:var(--black);position:relative;box-shadow:0 0 0 8px var(--mid),0 0 0 9px var(--rule),0 32px 64px rgba(0,0,0,0.6);overflow:hidden;display:flex;flex-direction:column}
-.phone-notch{width:60px;height:6px;background:var(--rule);border-radius:3px;margin:14px auto 0;flex-shrink:0}
-.phone-screen{flex:1;padding:12px 14px;overflow:hidden}
-.phone-app-header{font-size:7px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:10px}
-.phone-app-title{font-size:14px;font-weight:700;letter-spacing:-0.02em;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:12px}
-.phone-app-week{font-size:7px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim2);margin-bottom:8px}
-.phone-session{background:var(--mid);border:0.5px solid var(--rule);padding:8px 10px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.phone-session-dot{width:5px;height:5px;background:var(--white);flex-shrink:0}
-.phone-session-name{font-size:7.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white)}
-.phone-session-sub{font-size:6.5px;color:var(--dim2);font-style:italic;font-family:'EB Garamond',serif;margin-left:auto}
-.phone-progress{margin-top:12px}
-.phone-progress-label{display:flex;justify-content:space-between;font-size:6.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim2);margin-bottom:5px}
-.phone-progress-bar{height:2px;background:var(--rule);position:relative}
-.phone-progress-fill{position:absolute;left:0;top:0;bottom:0;background:var(--white);width:62%}
+.phone-img-frame{width:240px;border-radius:44px;overflow:hidden;border:1.5px solid var(--rule);box-shadow:0 0 0 8px rgba(26,26,24,0.85),0 0 0 9.5px var(--rule),0 32px 64px rgba(0,0,0,0.7);position:relative;z-index:1}
+.phone-img{width:100%;display:block}
 .phone-text{padding:80px 72px;display:flex;flex-direction:column;justify-content:center}
 .phone-heading{font-size:clamp(32px,3.5vw,52px);font-weight:700;letter-spacing:-0.04em;line-height:0.9;text-transform:uppercase;margin-bottom:28px;margin-top:20px}
 .phone-heading em{font-family:'EB Garamond',serif;font-style:italic;font-weight:400;color:var(--dim);display:block;font-size:0.78em}
@@ -456,43 +444,8 @@ footer{border-top:0.5px solid var(--rule);background:var(--black)}
 <!-- ── WORKOUTS DELIVERED TO YOUR PHONE ── -->
 <section class="phone-section" id="app">
   <div class="phone-visual">
-    <div class="phone-shell">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <div class="phone-app-header">Meade Performance</div>
-        <div class="phone-app-title">Week 4<br>Block 2</div>
-        <div class="phone-app-week">This Week</div>
-        <div class="phone-session">
-          <div class="phone-session-dot"></div>
-          <div>
-            <div class="phone-session-name">Lower Power</div>
-          </div>
-          <div class="phone-session-sub">Complete</div>
-        </div>
-        <div class="phone-session">
-          <div class="phone-session-dot" style="background:var(--dim2)"></div>
-          <div>
-            <div class="phone-session-name">Upper Strength</div>
-          </div>
-          <div class="phone-session-sub">Today</div>
-        </div>
-        <div class="phone-session" style="opacity:0.45">
-          <div class="phone-session-dot" style="background:var(--rule)"></div>
-          <div>
-            <div class="phone-session-name">Speed &amp; Conditioning</div>
-          </div>
-          <div class="phone-session-sub">Thu</div>
-        </div>
-        <div class="phone-progress" style="margin-top:16px">
-          <div class="phone-progress-label">
-            <span>Block Progress</span>
-            <span>62%</span>
-          </div>
-          <div class="phone-progress-bar">
-            <div class="phone-progress-fill"></div>
-          </div>
-        </div>
-      </div>
+    <div class="phone-img-frame">
+      <img src="./IMG_3096.jpg" alt="Meade Performance App" class="phone-img">
     </div>
   </div>
 
