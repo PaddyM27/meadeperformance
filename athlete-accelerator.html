@@ -1139,6 +1139,13 @@ main, nav, footer, section { position: relative; z-index: 1; }
   .hero-headline { font-size: 18px; }
   .become-headline { font-size: 26px; }
 }
+@media (max-width: 768px) {
+  .who-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 640px) {
+  .who-grid { padding: 0 !important; }
+  .who-grid > div { padding: 24px 20px !important; }
+}
 </style>
 </head>
 <body>
@@ -1375,6 +1382,27 @@ main, nav, footer, section { position: relative; z-index: 1; }
     </div>
   </div>
 
+</section>
+
+<!-- WHO'S IT FOR -->
+<section style="padding:80px 0;border-top:0.5px solid var(--rule);background:var(--grey)">
+  <div style="max-width:1160px;margin:0 auto;padding:0 48px">
+    <span class="section-label reveal">Who's it for?</span>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:0" class="who-grid">
+      <div style="padding:32px 28px;background:var(--mid);border:0.5px solid var(--rule)">
+        <span style="display:block;font-size:9px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--dim2);margin-bottom:14px">01</span>
+        <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--dim);line-height:1.7">You want a personalised programme without the commitment of 1:1 coaching</p>
+      </div>
+      <div style="padding:32px 28px;background:var(--mid);border:0.5px solid var(--rule)">
+        <span style="display:block;font-size:9px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--dim2);margin-bottom:14px">02</span>
+        <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--dim);line-height:1.7">You're self-motivated and happy to train at your own pace</p>
+      </div>
+      <div style="padding:32px 28px;background:var(--mid);border:0.5px solid var(--rule)">
+        <span style="display:block;font-size:9px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--dim2);margin-bottom:14px">03</span>
+        <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--dim);line-height:1.7">You want structure and direction, without needing ongoing check-ins</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PRICING -->
