@@ -1004,9 +1004,36 @@ hr{
 .pt-grain .photo-tag{color:var(--white)}
 
 /* ── RESPONSIVE ── */
+/* ── PDF BUTTON ── */
+.pdf-btn{
+  position:fixed;
+  bottom:32px;
+  right:32px;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 24px;
+  background:var(--white);
+  color:var(--black);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  border:none;
+  cursor:pointer;
+  transition:opacity 150ms ease, transform 150ms ease;
+  box-shadow:0 4px 24px rgba(0,0,0,0.4);
+}
+.pdf-btn:hover{opacity:0.85;transform:translateY(-2px)}
+.pdf-btn:active{transform:translateY(0)}
+.pdf-btn svg{flex-shrink:0}
+
 @media print{
-  body{background:#fff;color:#000}
-  .page{break-after:page;min-height:auto}
+  .pdf-btn{display:none}
+  body{background:var(--black);color:var(--white)}
+  .page{break-after:page;min-height:auto;padding:48px}
+  .section-number{font-size:80px}
 }
 
 @media(max-width:900px){
@@ -1035,7 +1062,7 @@ hr{
       <span class="nav-brand-sep"></span>
       <span class="nav-brand-sub">Brand Guidelines</span>
     </div>
-    <span class="nav-page">Version 1.0 — 2025</span>
+    <span class="nav-page">Version 2.0 — 2026</span>
   </div>
 
   <div class="cover-grid">
@@ -1051,7 +1078,7 @@ hr{
         <span class="doc-meta-label">Prepared by</span>
         <span class="doc-meta-value">Paddy Meade, Meade Performance</span>
         <span class="doc-meta-label" style="margin-top:12px">Version</span>
-        <span class="doc-meta-value">1.0 — April 2025</span>
+        <span class="doc-meta-value">2.0 — May 2026</span>
         <span class="doc-meta-label" style="margin-top:12px">For use</span>
         <span class="doc-meta-value">Internal and external partners</span>
       </div>
@@ -1082,6 +1109,13 @@ hr{
     <div>
       <div style="font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim2);margin-bottom:32px">Index</div>
       <div style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:0.5px solid var(--rule)">
+          <div style="display:flex;align-items:baseline;gap:16px">
+            <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim2)">00</span>
+            <span style="font-size:15px;font-weight:700;letter-spacing:-0.01em;text-transform:uppercase">Brand Strategy</span>
+          </div>
+          <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim)">Positioning, slogan, symbol, story</span>
+        </div>
         <div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:0.5px solid var(--rule)">
           <div style="display:flex;align-items:baseline;gap:16px">
             <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim2)">01</span>
@@ -1128,19 +1162,206 @@ hr{
     </div>
     <div style="padding-top:32px">
       <div style="font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim2);margin-bottom:20px">Brand essence</div>
-      <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:22px;color:var(--white);line-height:1.55;margin-bottom:32px">"Athletic editorial. The aesthetic of elite performance without the noise of generic fitness culture."</p>
+      <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:22px;color:var(--white);line-height:1.55;margin-bottom:32px">"Built for the decided athlete — the one who's done being average and needs a system that takes that decision seriously."</p>
       <div style="display:flex;flex-direction:column;gap:16px">
         <div style="padding:20px;border:0.5px solid var(--rule);background:var(--grey)">
           <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:8px">Audience</div>
-          <div style="font-size:14px;color:var(--white)">Club GAA players, 18–30. Serious athletes in serious pursuit of their potential.</div>
+          <div style="font-size:14px;color:var(--white)">Athletes who refuse to settle for average. Mindset-first — the sport doesn't matter, the refusal to settle is the filter.</div>
         </div>
         <div style="padding:20px;border:0.5px solid var(--rule);background:var(--grey)">
           <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:8px">Positioning</div>
-          <div style="font-size:14px;color:var(--white)">The only GAA-specific S&C system built by a player who still plays at the highest level.</div>
+          <div style="font-size:14px;color:var(--white)">The coaching system for athletes who've decided they're done being average — built around the standard they're committed to reaching, not the one they need convincing to want.</div>
         </div>
         <div style="padding:20px;border:0.5px solid var(--rule);background:var(--grey)">
           <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:8px">Personality</div>
-          <div style="font-size:14px;color:var(--white)">Direct. Warm. Premium. Confident without arrogance. Like a player who lets results do the talking.</div>
+          <div style="font-size:14px;color:var(--white)">Direct. Warm. Premium. Confident without arrogance. Doesn't motivate — meets you where you already are.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     00 — BRAND STRATEGY
+═══════════════════════════ -->
+<section class="page">
+  <div class="page-nav">
+    <div class="nav-brand">
+      <span class="nav-brand-main">Meade Performance</span>
+      <span class="nav-brand-sep"></span>
+      <span class="nav-brand-sub">Brand Strategy</span>
+    </div>
+    <span class="nav-section">00 — Brand Strategy</span>
+  </div>
+
+  <div class="section-intro">
+    <div>
+      <div class="section-number">00</div>
+      <h2 class="section-title">Brand<br><em>Strategy</em></h2>
+    </div>
+    <div>
+      <p class="section-desc">Five elements that define what Meade Performance stands for, who it speaks to, and what makes it impossible to confuse with anyone else. These are not guidelines — they are the foundation everything else is built on.</p>
+    </div>
+  </div>
+
+  <!-- SALIENT IDEA + POSITIONING -->
+  <div class="rule-label"><span>The Salient Idea</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+    <div style="padding:48px;border:0.5px solid var(--rule);background:var(--grey);display:flex;flex-direction:column;justify-content:space-between;min-height:280px">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim2);margin-bottom:20px">One idea. Everything points back to it.</div>
+      <div>
+        <div style="font-size:clamp(36px,4vw,56px);font-weight:700;letter-spacing:-0.04em;line-height:0.88;text-transform:uppercase;margin-bottom:16px">Built for the<br>decided athlete.</div>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--dim);line-height:1.75">Meade Performance serves athletes who have decided they will not be average — done accepting the gap between who they are and who they know they can be. Not a claim about where they are now. A decision about where they're going. Not motivation. The infrastructure for that decision.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <div style="padding:28px;border:0.5px solid var(--rule);background:var(--mid);flex:1">
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:10px">Audience Filter</div>
+        <div style="font-size:14px;color:var(--white);line-height:1.5">Mindset-first. Sport-agnostic. The filter is not what they play — it's their refusal to settle for average.</div>
+      </div>
+      <div style="padding:28px;border:0.5px solid var(--rule);background:var(--mid);flex:1">
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:10px">What We're Not</div>
+        <div style="font-size:14px;color:var(--dim);line-height:1.5">Not a motivation brand. Not a beginners programme. Not built for athletes still deciding. Not another generic S&C system for everyone.</div>
+      </div>
+      <div style="padding:28px;border:0.5px solid var(--rule);background:var(--mid);flex:1">
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:10px">The Core Belief</div>
+        <div style="font-size:14px;color:var(--white);line-height:1.5">"Your standard is already there. What's missing is a system built around it."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLOGAN -->
+  <div class="rule-label"><span>Signature Slogan</span></div>
+  <div style="padding:64px;border:0.5px solid var(--rule);background:var(--grey);text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(245,242,236,0.03) 0%,transparent 70%)"></div>
+    <div style="position:relative">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--dim2);margin-bottom:24px">Signature Slogan — Seth Godin Permission Marketing Framework</div>
+      <div style="font-size:clamp(48px,6vw,80px);font-weight:700;letter-spacing:-0.04em;line-height:0.85;text-transform:uppercase;margin-bottom:24px">Average is<br>a choice.</div>
+      <div style="width:40px;height:0.5px;background:var(--rule);margin:0 auto 24px"></div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--dim);max-width:520px;margin:0 auto;line-height:1.7">Four words. A truth claim, not marketing copy. It challenges the right person and confirms exactly who Meade Performance is for. The athlete who doesn't settle hears this and feels seen. Use it to open and close everything.</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:2px">
+    <div style="padding:28px;border:0.5px solid var(--rule);background:var(--grey)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:12px">Instagram bio</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:var(--white);line-height:1.7">Meade Performance.<br>Average is a choice.</div>
+    </div>
+    <div style="padding:28px;border:0.5px solid var(--rule);background:var(--grey)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:12px">Welcome email</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:var(--white);line-height:1.7">"Average was never the plan. Average is a choice — you already made yours."</div>
+    </div>
+    <div style="padding:28px;border:0.5px solid var(--rule);background:var(--grey)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:12px">Spoken intro</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:var(--white);line-height:1.7">"I believe average is a choice. This is Meade Performance."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     00b — BRAND STRATEGY cont.
+═══════════════════════════ -->
+<section class="page">
+  <div class="page-nav">
+    <div class="nav-brand">
+      <span class="nav-brand-main">Meade Performance</span>
+      <span class="nav-brand-sep"></span>
+      <span class="nav-brand-sub">Brand Strategy</span>
+    </div>
+    <span class="nav-section">00 — Brand Strategy</span>
+  </div>
+
+  <!-- SYMBOL -->
+  <div class="rule-label" style="margin-top:0"><span>Signature Symbol — The Datum Point</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+    <div style="padding:80px;border:0.5px solid var(--rule);background:var(--grey);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px;min-height:320px">
+      <svg width="140" height="90" viewBox="0 0 140 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="72" x2="140" y2="72" stroke="#F5F2EC" stroke-width="1.5"/>
+        <line x1="70" y1="20" x2="70" y2="54" stroke="#F5F2EC" stroke-width="1.5"/>
+        <line x1="53" y1="37" x2="87" y2="37" stroke="#F5F2EC" stroke-width="1.5"/>
+      </svg>
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim2);text-align:center">The Datum Point</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--dim2);text-align:center;max-width:200px;line-height:1.6">Survives without colour. Drawable from memory. Describable in one sentence.</div>
+    </div>
+    <div style="padding:48px;border:0.5px solid var(--rule);background:var(--mid)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim2);margin-bottom:20px">Symbol — Seth Godin Purple Cow Framework</div>
+      <div style="font-size:22px;font-weight:700;letter-spacing:-0.03em;text-transform:uppercase;margin-bottom:8px">The Datum Point</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim);margin-bottom:24px;line-height:1.6">One sentence: "Your personal baseline — the fixed point all your progress is measured from."</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:4px;height:4px;background:var(--white);flex-shrink:0;margin-top:6px"></div>
+          <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim);line-height:1.6">Completely unoccupied visual territory in fitness and coaching. Nobody else is here.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:4px;height:4px;background:var(--white);flex-shrink:0;margin-top:6px"></div>
+          <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim);line-height:1.6">Precision and measurement imagery communicates trust and authority before a word is read.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:4px;height:4px;background:var(--white);flex-shrink:0;margin-top:6px"></div>
+          <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim);line-height:1.6">The "what is that?" reaction is highest of any option tested — it rewards the person who looks closer.</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <div style="width:4px;height:4px;background:var(--white);flex-shrink:0;margin-top:6px"></div>
+          <span style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--dim);line-height:1.6">Use as a stamp mark on content, embroidered on apparel, profile avatar background, video intro.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SURPRISE -->
+  <div class="rule-label"><span>Signature Surprise — The Purple Cow</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+    <div style="padding:40px;border:0.5px solid var(--rule);background:var(--grey)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:16px">What everyone believes</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:22px;color:var(--dim);line-height:1.4;text-decoration:line-through;margin-bottom:12px">"To perform better, train harder."</div>
+      <div style="font-size:11px;color:var(--dim2);font-style:italic;line-height:1.6">The fitness industry's dominant belief. The one Meade Performance challenges directly — and is uniquely positioned to prove wrong.</div>
+    </div>
+    <div style="padding:40px;border:0.5px solid var(--rule);background:var(--mid)">
+      <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:16px">The counterintuitive truth</div>
+      <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:22px;color:var(--white);line-height:1.4;margin-bottom:12px">"The best athletes don't train harder. They refuse to train worse."</div>
+      <div style="font-size:11px;color:var(--dim2);line-height:1.6">The gap isn't effort. It's the floor you won't go below. This is the idea worth spreading — defensible, ownable, and impossible to confuse with any competitor's message.</div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <div class="rule-label"><span>Signature Story — The 3-Minute Script</span></div>
+  <div style="padding:48px;border:0.5px solid var(--rule);background:var(--grey)">
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start">
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:16px">Story arc</div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="padding:14px 0;border-bottom:0.5px solid var(--rule)">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:4px">Before</div>
+            <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--dim);line-height:1.6">County player. Captain. Maximum effort. The belief: effort = results.</div>
+          </div>
+          <div style="padding:14px 0;border-bottom:0.5px solid var(--rule)">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:4px">Tension</div>
+            <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--dim);line-height:1.6">Ulster Final. Dropped. Despite everything.</div>
+          </div>
+          <div style="padding:14px 0;border-bottom:0.5px solid var(--rule)">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:4px">Turning Point</div>
+            <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--dim);line-height:1.6">The effort wasn't wrong. The system was — built for average, not the standard he held.</div>
+          </div>
+          <div style="padding:14px 0">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:4px">After</div>
+            <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--dim);line-height:1.6">Built Meade Performance — not to motivate, but to meet the standard athletes already hold.</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding:16px;background:var(--black);border:0.5px solid var(--rule)">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:8px">Universal truth</div>
+          <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--white);line-height:1.6">"The hardest thing about being a decided athlete isn't the decision. It's discovering that everything around you was built for athletes who haven't made it yet."</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim2);margin-bottom:20px">The script — under 3 minutes (use verbatim for podcasts, speaking, video)</div>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--white);line-height:2">"I was captain of my county team.<br><br>
+          And I got dropped for the Ulster Final.<br><br>
+          I had put in the work. Not in the way people say it when they're making excuses. I mean I had genuinely done everything I was supposed to do. And it didn't matter.<br><br>
+          There's a specific kind of confusion that comes when you're a decided athlete and the results don't match. You can't point to the thing you didn't do. You did everything. And you still ended up where the average players ended up.<br><br>
+          That was the question I couldn't shake. If the effort is there — genuinely, undeniably there — what's the variable?<br><br>
+          The effort wasn't wrong. The system was.<br><br>
+          I'd been training as a decided athlete — but inside a system built for athletes who hadn't decided yet. No matter how high your standard, if the system pulls toward average, that's where you end up.<br><br>
+          Everything I build starts from one question: what does this athlete already demand from themselves — and how do I build a system that finally meets that?<br><br>
+          Average is a choice. You already made the other one. This is the system for that decision."
         </div>
       </div>
     </div>
@@ -1807,6 +2028,15 @@ hr{
   </div>
   <div class="version-line">Version 1.0 · April 2025 · Confidential</div>
 </section>
+
+
+<!-- ── PDF DOWNLOAD BUTTON ── -->
+<button class="pdf-btn" onclick="window.print()">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+    <path d="M7 1v8M4 6l3 3 3-3M2 10v1a1 1 0 001 1h8a1 1 0 001-1v-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Download PDF
+</button>
 
 </body>
 </html>
